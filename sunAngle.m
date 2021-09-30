@@ -13,5 +13,5 @@ function Angle = SunAngle(day_of_year, hr)
     ha = ((tst / 4) - 180); 
     solar_zenith = acosd((sind(lat)*sind(decl))+(cosd(lat)*cosd(decl)*cosd(ha)));
     solar_azimuth = 180 - acosd(-(sind(lat)*cosd(solar_zenith) - sind(decl))/(cosd(lat)*sind(solar_zenith)));
-    Angle = [solar_zenith solar_azimuth];
+    Angle = solar_zenith;
 end
