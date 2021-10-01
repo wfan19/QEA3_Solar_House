@@ -1,4 +1,4 @@
-function Angle = SunAngle(day_of_year, hr)
+function Angle = sunAngle(day_of_year, hr)
     %Sunrise/Sunset calculations
     %https://www.esrl.noaa.gov/gmd/grad/solcalc/solareqns.PDF
     longitude = 42.3601 * pi / 180; %for Boston
@@ -11,7 +11,7 @@ function Angle = SunAngle(day_of_year, hr)
     time_offset = eqtime + 4*longitude - 60*timezone;
     tst = hr*60 + time_offset;
     ha = ((tst / 4) - 180); 
-    solar_zenith = acosd((sind(lat)*sind(decl))+(cosd(lat)*cosd(decl)*cosd(ha)));
-    solar_azimuth = 180 - acosd(-(sind(lat)*cosd(solar_zenith) - sind(decl))/(cosd(lat)*sind(solar_zenith)));
+    solar_zenith = acosd((sind(lat).*sind(decl))+(cosd(lat).*cosd(decl).*cosd(ha)));
+    solar_azimuth = 180 - acosd(-(sind(lat).*cosd(solar_zenith) - sind(decl))./(cosd(lat).*sind(solar_zenith)));
     Angle = solar_zenith;
 end
